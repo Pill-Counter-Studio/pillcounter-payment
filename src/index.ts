@@ -56,6 +56,14 @@ app.get("/health", (req, res, next) => {
     }
 })
 
+app.get("/settings", (req, res, next) => {
+    try {
+        res.status(200).json(settings)
+    } catch (err) {
+        next(err);
+    }
+})
+
 // Web will call it to place an order
 app.post('/order', async (req, res) => {
     try {
