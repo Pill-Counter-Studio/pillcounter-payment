@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <style>
+      .content {
+        display: flex;
+        flex-direction: column;
+        margin: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <h4 style="font-size: 3rem"><%- title %></h4>
+      <p style="font-size: 3rem"><%- description %></p>
+      <a style="font-size: 3rem" href="<%- href %>">返回</a>
+    </div>
+  </body>
+</html>
