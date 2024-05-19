@@ -4,7 +4,7 @@
 
 tag=$(git describe --tags --always)
 
-while getopts ":t" opt; do
+while getopts "t:" opt; do
   case ${opt} in
     t )
       tag=$OPTARG

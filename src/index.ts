@@ -25,8 +25,11 @@ app.use(cors({ credentials: true, origin: ['http://localhost:3001'] }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const accessLogStream = fs.createWriteStream(path.join(__dirname, 'payment-service.log'), { flags: 'a' });
-app.use(morgan('combined', { stream: accessLogStream }));
+fs.mkdir(`${__dirname}/log`, { recursive: true }, (err) => {
+    if (err) throw err;
+});
+const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log', 'payment-service.log'), { flags: 'a' });
+app.use(morgan('common', { stream: accessLogStream }));
 
 function errorHandler(err: Error, req: Request, res: Response, next: NextFunction) {
     console.error(err.stack);
